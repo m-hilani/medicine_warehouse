@@ -1,0 +1,18 @@
+import 'package:medicine_warehouse/helper/api.dart';
+import 'package:medicine_warehouse/models/medicine_model.dart';
+
+class CartMedicineService {
+  Future<List<MedicineModel>> getAllCartMedicine(
+      {required String token}) async {
+    List<dynamic> data =
+        await Api().get(url: 'put the get url here with token');
+
+    List<MedicineModel> medicinesList = [];
+    for (int i = 0; i < data.length; i++) {
+      medicinesList.add(
+        MedicineModel.fromJson(data[i]),
+      );
+    }
+    return medicinesList;
+  }
+}
