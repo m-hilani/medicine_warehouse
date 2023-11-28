@@ -23,7 +23,7 @@ class OrdersPage extends StatelessWidget {
                 itemBuilder: (context, index) {
               return Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 300, vertical: 15),
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
                 child: CustomOrder(
                     //  order: orders[index],
                     ),

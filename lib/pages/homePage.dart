@@ -32,6 +32,16 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    int getCrossAxisCount() {
+      if (width > 900)
+        return 6;
+      else if (width > 600)
+        return 3;
+      else
+        return 2;
+    }
+
     return Scaffold(
       /*bottomNavigationBar: NavigationBar(
         destinations: [
@@ -90,10 +100,10 @@ class _HomePageState extends State<HomePage> {
                 child: GridView.builder(
                     //  itemCount: categories.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 6,
+                        crossAxisCount: getCrossAxisCount(),
                         childAspectRatio: 1.2,
                         crossAxisSpacing: 10,
-                        mainAxisSpacing: 10),
+                        mainAxisSpacing: 20),
                     itemBuilder: (context, index) {
                       return CustomCategoryCard(
                           //  category: categories[index],

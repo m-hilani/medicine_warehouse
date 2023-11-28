@@ -5,15 +5,20 @@ import 'package:medicine_warehouse/widgets/customCard.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 class ProductsPage extends StatelessWidget {
-  int getCrossAxisCount() {
-    if (kIsWeb) return 6;
-    return 2;
-  }
-
   const ProductsPage({super.key});
   static String id = "ProductsPage";
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    int getCrossAxisCount() {
+      if (width > 1000)
+        return 6;
+      else if (width > 600)
+        return 3;
+      else
+        return 2;
+    }
+
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(
@@ -52,10 +57,10 @@ class ProductsPage extends StatelessWidget {
               GridView.builder(
                   //  itemCount: medicines.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 6,
+                      crossAxisCount: getCrossAxisCount(),
                       childAspectRatio: 1.8,
                       crossAxisSpacing: 10,
-                      mainAxisSpacing: 10),
+                      mainAxisSpacing: 0),
                   itemBuilder: (context, index) {
                     return CustomCard(
                         //  product: medicines[index],

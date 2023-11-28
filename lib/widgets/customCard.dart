@@ -24,44 +24,55 @@ class CustomCard extends StatelessWidget {
           child: Card(
             elevation: 10,
             color: Color(0xFF3AAFB8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 5, left: 8),
-                  child: Text(
-                    'medecine'
-                    //${product!.ProductName.substring(0, 15)}
-                    '...',
-                    style: TextStyle(color: Colors.white),
+            child: Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5, left: 8),
+                    child: Text(
+                      'medecine'
+                      //${product!.ProductName.substring(0, 15)}
+                      '...',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 5, left: 8),
-                  child: Text(
-                    'factory'
-                    //${product!.ProductName.substring(0, 15)}
-                    '...',
-                    style: TextStyle(color: Colors.white),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5, left: 8),
+                    child: Text(
+                      'factory'
+                      //${product!.ProductName.substring(0, 15)}
+                      '...',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        r"$ " "22"
-                        //${product!.price}"
-                        ,
-                        style: TextStyle(color: Colors.white),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 8, right: 8, bottom: 8),
+                    child: Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            r"$ " "22"
+                            //${product!.price}"
+                            ,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Icon(
+                              Icons.favorite,
+                              color: Colors.red,
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                )
-              ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),

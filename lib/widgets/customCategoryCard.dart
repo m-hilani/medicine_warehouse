@@ -27,20 +27,27 @@ class CustomCategoryCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Container(
-                    color: Colors.white,
-                    height: 95,
                     width: double.infinity,
-                    child: Image.asset(
-                      "assets/images/mm.jpg",
+                    child: FittedBox(
+                      fit: BoxFit.cover,
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            "assets/images/mm.jpg",
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: Text(
-                      "category name",
-                      style: TextStyle(color: Colors.white, fontSize: 16),
+                Expanded(
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Text(
+                        "category name",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
                     ),
                   ),
                 )

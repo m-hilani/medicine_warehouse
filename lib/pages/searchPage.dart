@@ -20,6 +20,16 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    int getCrossAxisCount() {
+      if (width > 1000)
+        return 6;
+      else if (width > 600)
+        return 3;
+      else
+        return 2;
+    }
+
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(
@@ -84,10 +94,10 @@ class _SearchPageState extends State<SearchPage> {
               GridView.builder(
                   //  itemCount: products.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 6,
+                      crossAxisCount: getCrossAxisCount(),
                       childAspectRatio: dropdownvalue == "category" ? 1.2 : 1.8,
                       crossAxisSpacing: 10,
-                      mainAxisSpacing: 10),
+                      mainAxisSpacing: 20),
                   itemBuilder: (context, index) {
                     return dropdownvalue == "category"
                         ? CustomCategoryCard(
