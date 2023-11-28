@@ -25,95 +25,91 @@ class _RegisterPageState extends State<RegisterPage> {
       backgroundColor: Color(0xFFECE6E6),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
-        child: ListView(
+        child: Row(
           children: [
-            const SizedBox(
-              height: 70,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const CircleAvatar(
-                  radius: 100,
-                  backgroundImage:
-                      AssetImage('assets/images/medicine_page-0001.jpg'),
-                ),
-              ],
-            ),
-            const SizedBox(height: 30),
-            Text(
-              'Register',
-              style: TextStyle(
-                fontSize: 25,
-                color: Colors.black,
+            Expanded(
+                child: Container(
+              child: Image.asset(
+                'assets/images/medicine_page-0001.jpg',
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            CustomTextFild(
-              onChanged: (value) {
-                username = value;
-              },
-              obsecure: false,
-              hintText: 'User Name',
-            ),
-            const SizedBox(height: 12),
-            CustomTextFild(
-              onChanged: (value) {
-                phoneNumber = value;
-              },
-              obsecure: false,
-              hintText: 'Phone Number',
-            ),
-            const SizedBox(height: 12),
-            CustomTextFild(
-              onChanged: (value) {
-                password = value;
-              },
-              obsecure: isobsecure,
-              icon: IconButton(
-                  onPressed: () {
-                    if (isobsecure == false)
-                      isobsecure = true;
-                    else
-                      isobsecure = false;
-                    setState(() {});
-                  },
-                  color: kcolor,
-                  icon: Icon(isobsecure == false
-                      ? FontAwesomeIcons.eye
-                      : FontAwesomeIcons.eyeSlash)),
-              hintText: 'Password',
-            ),
-            const SizedBox(height: 20),
-            CustomButton(
-              onTap: () {
-                Navigator.pushReplacementNamed(context, HomePage.id);
-              },
-              text: 'Register',
-            ),
-            const SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'already have an account?',
-                  style: TextStyle(color: Colors.black),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text(
-                    'LogIn',
+            )),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    'Register',
                     style: TextStyle(
-                      color: kcolor,
-                      fontSize: 18,
+                      fontSize: 25,
+                      color: Colors.black,
                     ),
                   ),
-                ),
-              ],
+                  Column(
+                    children: [
+                      CustomTextFild(
+                        onChanged: (value) {
+                          username = value;
+                        },
+                        obsecure: false,
+                        hintText: 'User Name',
+                      ),
+                      CustomTextFild(
+                        onChanged: (value) {
+                          phoneNumber = value;
+                        },
+                        obsecure: false,
+                        hintText: 'Phone Number',
+                      ),
+                      CustomTextFild(
+                        onChanged: (value) {
+                          password = value;
+                        },
+                        obsecure: isobsecure,
+                        icon: IconButton(
+                            onPressed: () {
+                              if (isobsecure == false)
+                                isobsecure = true;
+                              else
+                                isobsecure = false;
+                              setState(() {});
+                            },
+                            color: kcolor,
+                            icon: Icon(isobsecure == false
+                                ? FontAwesomeIcons.eye
+                                : FontAwesomeIcons.eyeSlash)),
+                        hintText: 'Password',
+                      ),
+                    ],
+                  ),
+                  CustomButton(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, HomePage.id);
+                    },
+                    text: 'Register',
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'already have an account?',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text(
+                          'LogIn',
+                          style: TextStyle(
+                            color: kcolor,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),
